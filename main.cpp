@@ -318,146 +318,380 @@ int64_t modulo(int64_t opA, int64_t opB)
 
 
 
-
-
-int main()
+/// \brief Fonction pour utiliser le type int32_t
+///
+/// A l'interieur se trouve tout le programme permettant de demander les operateurs, l'operande et l'affichage du resultat.
+/// Celle-ci correspond au type int32_t
+/// 
+/// \sa entier64(). flottant(). nbdouble().
+///
+void entier32()
 {
+	/// \brief Declaration et initialisation des variables
+	int32_t opA, opB; /// < Declaration des variables opA et opB, utilisees lors du choix de l'utilisateur.
+	int operation; /// < Declaration de la variable operation, utilisee lors du choix de l'utilisateur.
+	bool verifop = false; /// < Declaration et initialisation des variables utilise pour la verification des choix de l'utilisateur.
+		
+	/// \brief Affichage a l'utilisateur de la demande des operateurs
+	/// L'utilisateur choisi ses deux operateurs, attention l'ordre est important si on utilise la soustraction ou la division.
+	/// Le choix est enregistre dans les variables opA et opB.
+	cout << "Quel est l'operateur A ?" << endl;
+	cin >> opA;
 
-	int operation, type;
-	bool veriftype = false, verifop = false;
-
-	do{
-		cout << "Quel type voulez-vous utiliser? \n\t 1- int32_t\n\t 2- int64_t\n\t 3- float\n\t 4- double" << endl;
-		cin >> type;
-
-		switch (type)
+	cout << "Quel est l'operateur B ?" << endl;
+	cin >> opB;
+	
+	/// \brief Boucle de verification.
+	///
+	/// La boucle while permet la verification pour la question a propos du choix de l'operande a utiliser entre addiction, soustraction, multiplication, division, et division euclidienne.
+	/// Tant que la variable verifop est regle sur "faux", le programme continu dans la boucle.
+	///
+	/// \param verifop est un booleen
+	while (verifop == false)
+	{	
+		/// \brief Affichage a l'utilisateur de la demande de l'operande
+		/// L'utilisateur choisi entre 5 nombres pour choisir son operande.
+		/// Le choix est enregistre dans la variable operation.
+		cout << "Quelle opÃ©ration? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division\n\t 5- Division euclidienne" << endl;
+		cin >> operation;
+		
+		/// \brief Structure de controle
+		/// Le choix de l'operande est utilise comme parametre et le nombre choisi permet de lancer la fonction correspondant a l'option.
+		///
+		/// \param operation est un entier
+		switch (operation)
 		{
-		case 1: int32_t opA32, opB32;
-
-			cout << "Quel est l'operateur A ?" << endl;
-			cin >> opA32;
-
-			cout << "Quel est l'operateur B ?" << endl;
-			cin >> opB32;
-			do{
-				cout << "Quelle opération? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division\n\t 5- Division euclidienne" << endl;
-				cin >> operation;
-
-				switch (operation)
-				{
-				case 1: cout <<"Le resultat est : " << addition(opA32, opB32) << endl; verifop = true;
-					break;
-				case 2: cout <<"Le resultat est : " << soustraction(opA32, opB32) << endl; verifop = true;
-					break;
-				case 3: cout <<"Le resultat est : " << multiplication(opA32, opB32) << endl; verifop = true;
-					break;
-				case 4: cout <<"Le resultat est : " << division(opA32, opB32) << endl; verifop = true;
-					break;
-				case 5: cout <<"Le resultat est : " << modulo(opA32, opB32) << endl; verifop = true;
-					break;
-				default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
-					break;
-				}
-			} while (verifop == false);
-
-			veriftype = true;
+			/// \brief Premiere option
+			///
+			/// Ce premier "case" lance la fonction addition avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 1: cout << "Le resultat est : " << addition(opA, opB) << endl; verifop = true;
 			break;
-
-		case 2: int64_t opA64, opB64;
-
-			cout << "Quel est l'operateur A ?" << endl;
-			cin >> opA64;
-
-			cout << "Quel est l'operateur B ?" << endl;
-			cin >> opB64;
-
-			cout << "Quelle opération? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division\n\t 5- Division euclidienne" << endl;
-			cin >> operation;
-
-			do{
-				switch (operation)
-				{
-				case 1: cout << "Le resultat est : " << addition(opA64, opB64) << endl; verifop = true;
-					break;
-				case 2: cout << "Le resultat est : " << soustraction(opA64, opB64) << endl; verifop = true;
-					break;
-				case 3: cout << "Le resultat est : " << multiplication(opA64, opB64) << endl; verifop = true;
-					break;
-				case 4: cout << "Le resultat est : " << division(opA64, opB64) << endl; verifop = true;
-					break;
-				case 5: cout << "Le resultat est : " << modulo(opA64, opB64) << endl; verifop = true;
-					break;
-				default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
-					break;
-				}
-			} while (verifop == false);
-
-			veriftype = true;
+			/// \brief Deuxieme option
+			///
+			/// Ce deuxieme "case" lance la fonction soustraction avec comme parametres les deux operateurs.
+		/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 2: cout << "Le resultat est : " << soustraction(opA, opB) << endl; verifop = true;
 			break;
-
-		case 3: float opAfl, opBfl;
-
-			cout << "Quel est l'operateur A ?" << endl;
-			cin >> opAfl;
-
-			cout << "Quel est l'operateur B ?" << endl;
-			cin >> opBfl;
-
-			cout << "Quelle opération? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division" << endl;
-			cin >> operation;
-
-			do{
-				switch (operation)
-				{
-				case 1: cout << "Le resultat est : " << addition(opAfl, opBfl) << endl; verifop = true;
-					break;
-				case 2: cout << "Le resultat est : " << soustraction(opAfl, opBfl) << endl; verifop = true;
-					break;
-				case 3: cout << "Le resultat est : " << multiplication(opAfl, opBfl) << endl; verifop = true;
-					break;
-				case 4: cout << "Le resultat est : " << division(opAfl, opBfl) << endl; verifop = true;
-					break;
-				default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
-					break;
-				}
-			} while (verifop == false);
-
-			veriftype = true;
+			/// \brief Troisieme option
+			///
+			/// Ce troisieme "case" lance la fonction multiplication avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 3: cout << "Le resultat est : " << multiplication(opA, opB) << endl; verifop = true;
 			break;
-
-		case 4: double opAdb, opBdb;
-
-			cout << "Quel est l'operateur A ?" << endl;
-			cin >> opAdb;
-
-			cout << "Quel est l'operateur B ?" << endl;
-			cin >> opBdb;
-
-			cout << "Quelle opération? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division" << endl;
-			cin >> operation;
-
-			do{
-				switch (operation)
-				{
-				case 1: cout << "Le resultat est : " << addition(opAdb, opBdb) << endl; verifop = true;
-					break;
-				case 2: cout << "Le resultat est : " << soustraction(opAdb, opBdb) << endl; verifop = true;
-					break;
-				case 3: cout << "Le resultat est : " << multiplication(opAdb, opBdb) << endl; verifop = true;
-					break;
-				case 4: cout << "Le resultat est : " << division(opAdb, opBdb) << endl; verifop = true;
-					break;
-				default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
-					break;
-				}
-			} while (verifop == false);
-
-			veriftype = true;
+			/// \brief Quatrieme option
+			///
+			/// Ce quatrieme "case" lance la fonction division avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 4: cout << "Le resultat est : " << division(opA, opB) << endl; verifop = true;
 			break;
-
+			/// \brief Cinquieme option
+			///
+			/// Ce cinquieme "case" lance la fonction modulo avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 5: cout << "Le resultat est : " << modulo(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief L'option par defaut
+			///
+			/// Cette option permet d'indiquer a l'utilisateur une erreur de saisie, car si les precedentes options ne sont pas lancees, forcement il y a une erreur de saisie lors du choix du type a utiliser.
 		default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
 			break;
 		}
-	} while (veriftype == false);
+	}
 }
 
+/// \brief Fonction pour utiliser le type int64_t
+///
+/// A l'interieur se trouve tout le programme permettant de demander les operateurs, l'operande et l'affichage du resultat.
+/// Celle-ci correspond au type int64_t
+/// 
+/// \sa entier32(). flottant(). nbdouble().
+///
+void entier64()
+{
+	/// \brief Declaration et initialisation des variables
+	int64_t opA, opB; /// < Declaration des variables opA et opB, utilisees lors du choix de l'utilisateur.
+	int operation; /// < Declaration de la variable operation, utilisee lors du choix de l'utilisateur.
+	bool verifop = false; /// < Declaration et initialisation des variables utilise pour la verification des choix de l'utilisateur.
+		
+	/// \brief Affichage a l'utilisateur de la demande des operateurs
+	/// L'utilisateur choisi ses deux operateurs, attention l'ordre est important si on utilise la soustraction ou la division.
+	/// Le choix est enregistre dans les variables opA et opB.
+	cout << "Quel est l'operateur A ?" << endl;
+	cin >> opA;
+
+	cout << "Quel est l'operateur B ?" << endl;
+	cin >> opB;
+
+	/// \brief Boucle de verification.
+	///
+	/// La boucle while permet la verification pour la question a propos du choix de l'operande a utiliser entre addiction, soustraction, multiplication, division, et division euclidienne.
+	/// Tant que la variable verifop est regle sur "faux", le programme continu dans la boucle.
+	///
+	/// \param verifop est un booleen
+	while (verifop == false)
+	{
+		/// \brief Affichage a l'utilisateur de la demande de l'operande
+		/// L'utilisateur choisi entre 5 nombres pour choisir son operande.
+		/// Le choix est enregistre dans la variable operation.
+		cout << "Quelle opÃ©ration? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division\n\t 5- Division euclidienne" << endl;
+		cin >> operation;
+
+		/// \brief Structure de controle
+		/// Le choix de l'operande est utilise comme parametre et le nombre choisi permet de lancer la fonction correspondant a l'option.
+		///
+		/// \param operation est un entier
+		switch (operation)
+		{
+			/// \brief Premiere option
+			///
+			/// Ce premier "case" lance la fonction addition avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 1: cout << "Le resultat est : " << addition(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Deuxieme option
+			///
+			/// Ce deuxieme "case" lance la fonction soustraction avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 2: cout << "Le resultat est : " << soustraction(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Troisieme option
+			///
+			/// Ce troisieme "case" lance la fonction multiplication avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 3: cout << "Le resultat est : " << multiplication(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Quatrieme option
+			///
+			/// Ce quatrieme "case" lance la fonction division avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 4: cout << "Le resultat est : " << division(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Cinquieme option
+			///
+			/// Ce cinquieme "case" lance la fonction modulo avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 5: cout << "Le resultat est : " << modulo(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief L'option par defaut
+			///
+			/// Cette option permet d'indiquer a l'utilisateur une erreur de saisie, car si les precedentes options ne sont pas lancees, forcement il y a une erreur de saisie lors du choix du type a utiliser.
+		default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
+			break;
+		}
+	}
+}
+
+/// \brief Fonction pour utiliser le type float
+///
+/// A l'interieur se trouve tout le programme permettant de demander les operateurs, l'operande et l'affichage du resultat.
+/// Celle-ci correspond au type float
+/// 
+/// \sa entier32(). entier64(). nbdouble().
+///
+void flottant()
+{
+	/// \brief Declaration et initialisation des variables
+	float opA, opB; /// < Declaration des variables opA et opB, utilisees lors du choix de l'utilisateur.
+	int operation; /// < Declaration de la variable operation, utilisee lors du choix de l'utilisateur.
+	bool verifop = false; /// < Declaration et initialisation des variables utilise pour la verification des choix de l'utilisateur.
+	
+	/// \brief Affichage a l'utilisateur de la demande des operateurs
+	/// L'utilisateur choisi ses deux operateurs, attention l'ordre est important si on utilise la soustraction ou la division.
+	/// Le choix est enregistre dans les variables opA et opB.
+	cout << "Quel est l'operateur A ?" << endl;
+	cin >> opA;
+
+	cout << "Quel est l'operateur B ?" << endl;
+	cin >> opB;
+	
+	/// \brief Boucle de verification.
+	///
+	/// La boucle while permet la verification pour la question a propos du choix de l'operande a utiliser entre addiction, soustraction, multiplication, et division.
+	/// Tant que la variable verifop est regle sur "faux", le programme continu dans la boucle.
+	///
+	/// \param verifop est un booleen
+	while (verifop == false)
+	{
+		/// \brief Affichage a l'utilisateur de la demande de l'operande
+		/// L'utilisateur choisi entre 4 nombres pour choisir son operande.
+		/// Le choix est enregistre dans la variable operation.
+		cout << "Quelle opÃ©ration? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division" << endl;
+		cin >> operation;
+		
+		/// \brief Structure de controle
+		/// Le choix de l'operande est utilise comme parametre et le nombre choisi permet de lancer la fonction correspondant a l'option.
+		///
+		/// \param operation est un entier
+		switch (operation)
+		{
+			/// \brief Premiere option
+			///
+			/// Ce premier "case" lance la fonction addition avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 1: cout << "Le resultat est : " << addition(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Deuxieme option
+			///
+			/// Ce deuxieme "case" lance la fonction soustraction avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 2: cout << "Le resultat est : " << soustraction(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Troisieme option
+			///
+			/// Ce troisieme "case" lance la fonction multiplication avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 3: cout << "Le resultat est : " << multiplication(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Quatrieme option
+			///
+			/// Ce quatrieme "case" lance la fonction division avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 4: cout << "Le resultat est : " << division(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief L'option par defaut
+			///
+			/// Cette option permet d'indiquer a l'utilisateur une erreur de saisie, car si les precedentes options ne sont pas lancees, forcement il y a une erreur de saisie lors du choix du type a utiliser.
+		default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
+			break;
+		}
+	}
+}
+
+/// \brief Fonction pour utiliser le type double
+///
+/// A l'interieur se trouve tout le programme permettant de demander les operateurs, l'operande et l'affichage du resultat.
+/// Celle-ci correspond au type double
+/// 
+/// \sa entier32(). entier64(). flottant().
+///
+void nbdouble()
+{
+	/// \brief Declaration et initialisation des variables
+	double opA, opB; /// < Declaration des variables opA et opB, utilisees lors du choix de l'utilisateur.
+	int operation; /// < Declaration de la variable operation, utilisee lors du choix de l'utilisateur.
+	bool verifop = false; /// < Declaration et initialisation des variables utilise pour la verification des choix de l'utilisateur.
+	
+	/// \brief Affichage a l'utilisateur de la demande des operateurs
+	/// L'utilisateur choisi ses deux operateurs, attention l'ordre est important si on utilise la soustraction ou la division.
+	/// Le choix est enregistre dans les variables opA et opB.
+	cout << "Quel est l'operateur A ?" << endl;
+	cin >> opA;
+
+	cout << "Quel est l'operateur B ?" << endl;
+	cin >> opB;
+	
+	/// \brief Boucle de verification.
+	///
+	/// La boucle while permet la verification pour la question a propos du choix de l'operande a utiliser entre addiction, soustraction, multiplication, et division.
+	/// Tant que la variable verifop est regle sur "faux", le programme continu dans la boucle.
+	///
+	/// \param verifop est un booleen
+	while (verifop == false)
+	{
+		/// \brief Affichage a l'utilisateur de la demande de l'operande
+		/// L'utilisateur choisi entre 4 nombres pour choisir son operande.
+		/// Le choix est enregistre dans la variable operation.
+		cout << "Quelle opÃ©ration? \n\t 1- Addition\n\t 2- Soustraction\n\t 3- Multiplication\n\t 4- Division" << endl;
+		cin >> operation;
+
+		/// \brief Structure de controle
+		/// Le choix de l'operande est utilise comme parametre et le nombre choisi permet de lancer la fonction correspondant a l'option.
+		///
+		/// \param operation est un entier
+		switch (operation)
+		{
+			/// \brief Premiere option
+			///
+			/// Ce premier "case" lance la fonction addition avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 1: cout << "Le resultat est : " << addition(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Deuxieme option
+			///
+			/// Ce deuxieme "case" lance la fonction soustraction avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 2: cout << "Le resultat est : " << soustraction(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Troisieme option
+			///
+			/// Ce troisieme "case" lance la fonction multiplication avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 3: cout << "Le resultat est : " << multiplication(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief Quatrieme option
+			///
+			/// Ce quatrieme "case" lance la fonction division avec comme parametres les deux operateurs.
+			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
+		case 4: cout << "Le resultat est : " << division(opA, opB) << endl; verifop = true;
+			break;
+			/// \brief L'option par defaut
+			///
+			/// Cette option permet d'indiquer a l'utilisateur une erreur de saisie, car si les precedentes options ne sont pas lancees, forcement il y a une erreur de saisie lors du choix du type a utiliser.
+		default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
+			break;
+		}
+	}
+}
+
+/// \brief Fonction principal executant le code
+///
+int main()
+{
+	/// \brief Declaration et initialisation des variables
+	int type; /// < Declaration de la variable type, utilisee lors du choix de l'utilisateur.
+	bool veriftype = false; /// < Declaration et initialisation de la variable utilisee pour la verification des choix de l'utilisateur.
+
+	/// \brief Boucle de verification.
+	///
+	/// La boucle while permet la verification pour la question a propos du choix du type a utiliser entre int32_t, int64_t, float et double.
+	/// Tant que la variable veriftype est regle sur "faux", le programme continu dans la boucle.
+	///
+	/// \param veriftype est un booleen 
+	while (veriftype == false)
+	{
+		/// \brief Affichage a l'utilisateur de la demande du type a utiliser.
+		/// L'utilisateur doit choisir entre 4 nombre pour choisir son type.
+
+		/// Le choix est enregistre dans la variable type.
+		cout << "Quel type voulez-vous utiliser? \n\t 1- int32_t\n\t 2- int64_t\n\t 3- float\n\t 4- double" << endl;
+		cin >> type;
+
+		/// \brief Structure de controle
+		/// Le choix du type est utilise comme parametre et le nombre choisi permet de lancer la fonction correspondant a l'option.
+		///
+		/// \param type est un entier
+		switch (type)
+		{
+			/// \brief Premiere option
+			///
+			/// Ce premier "case" lance la fonction entier32 pour le type int32_t.
+			/// La variable de verification veriftype est regle sur "vrai" pour sortir de la boucle de verification.
+		case 1: entier32(); veriftype = true;
+			break;
+			/// \brief Deuxieme option
+			///
+			/// Ce deuxieme "case" lance la fonction entier64 pour le type int64_t.
+			/// La variable de verification veriftype est regle sur "vrai" pour sortir de la boucle de verification.
+		case 2: entier64(); veriftype = true;
+			break;
+			/// \brief Troisieme option
+			///
+			/// Ce troisieme "case" lance la fonction flottant pour le type float.
+			/// La variable de verification veriftype est regle sur "vrai" pour sortir de la boucle de verification.
+		case 3: flottant(); veriftype = true;
+			break;
+			/// \brief Quatrieme option
+			///
+			/// Ce quatrieme "case" lance la fonction nbdouble pour le type double.
+			/// La variable de verification veriftype est regle sur "vrai" pour sortir de la boucle de verification.
+		case 4: nbdouble();	veriftype = true;
+			break;
+			/// \brief L'option par defaut
+			///
+			/// Cette option permet d'indiquer a l'utilisateur une erreur de saisie, car si les precedentes options ne sont pas lancees, forcement il y a une erreur de saisie lors du choix du type a utiliser.
+		default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
+			break;
+		}
+	}
+}

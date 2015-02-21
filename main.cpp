@@ -5,12 +5,12 @@ using namespace std;
 
 /// \brief Fonction d'addition de deux nombres de type int32_t
 ///
-/// La fonction d'addition est polymorphe, c'est à dire qu'elle dépend du type des paramètres fournis.
-/// Celle-ci correspond au type int32_t
+/// La fonction d'addition est polymorphe, c'est a dire qu'elle dépend du type des paramètres fournis.
+/// Celle-ci correspond au type int32_t.
 ///
 /// \param opA un entier 32 bits
 /// \param opB un entier 32 bits
-/// \return La somme des deux entiers 32bits fournis en paramètres
+/// \return La somme des deux entiers 32bits fournis en parametres
 /// \sa ajouter(int64_t, int64_t). ajouter(double, double). ajouter(float, float)
 ///
 int32_t addition(int32_t opA, int32_t opB)
@@ -20,12 +20,12 @@ int32_t addition(int32_t opA, int32_t opB)
 
 /// \brief Fonction d'addition de deux nombres de type int64_t
 ///
-/// La fonction d'addition est polymorphe, c'est à dire qu'elle dépend du type des paramètres fournis.
-/// Celle-ci correspond au type int64_t
+/// La fonction d'addition est polymorphe, c'est a dire qu'elle dépend du type des paramètres fournis.
+/// Celle-ci correspond au type int64_t.
 ///
 /// \param opA un entier 64 bits
 /// \param opB un entier 64 bits
-/// \return La somme des deux entiers 64bits fournis en paramètres
+/// \return La somme des deux entiers 64bits fournis en parametres
 /// \sa ajouter(int32_t, int32_t). ajouter(double, double). ajouter(float, float)
 ///
 
@@ -36,7 +36,7 @@ int64_t addition(int64_t opA, int64_t opB)
 
 /// \brief Fonction d'addition de deux nombres de type float
 ///
-/// La fonction d'addition est polymorphe, c'est à dire qu'elle dépend du type des paramètres fournis.
+/// La fonction d'addition est polymorphe, c'est a dire qu'elle dépend du type des paramètres fournis.
 /// Celle-ci correspond au type float
 ///
 /// \param opA un decimal float
@@ -52,7 +52,7 @@ float addition(float opA, float opB)
 
 /// \brief Fonction d'addition de deux nombres de type double
 ///
-/// La fonction d'addition est polymorphe, c'est à dire qu'elle depend du type des parametres fournis.
+/// La fonction d'addition est polymorphe, c'est a dire qu'elle depend du type des parametres fournis.
 /// Celle-ci correspond au type double
 ///
 /// \param opA un decimal double

@@ -361,37 +361,37 @@ void entier32()
 		/// \param operation est un entier
 		switch (operation)
 		{
-			/// \brief Premiere option
+			/// \brief Premiere option :
 			///
 			/// Ce premier "case" lance la fonction addition avec comme parametres les deux operateurs.
 			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
 		case 1: cout << "Le resultat est : " << addition(opA, opB) << endl; verifop = true;
 			break;
-			/// \brief Deuxieme option
+			/// \brief Deuxieme option :
 			///
 			/// Ce deuxieme "case" lance la fonction soustraction avec comme parametres les deux operateurs.
 		/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
 		case 2: cout << "Le resultat est : " << soustraction(opA, opB) << endl; verifop = true;
 			break;
-			/// \brief Troisieme option
+			/// \brief Troisieme option :
 			///
 			/// Ce troisieme "case" lance la fonction multiplication avec comme parametres les deux operateurs.
 			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
 		case 3: cout << "Le resultat est : " << multiplication(opA, opB) << endl; verifop = true;
 			break;
-			/// \brief Quatrieme option
+			/// \brief Quatrieme option :
 			///
 			/// Ce quatrieme "case" lance la fonction division avec comme parametres les deux operateurs.
 			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
 		case 4: cout << "Le resultat est : " << division(opA, opB) << endl; verifop = true;
 			break;
-			/// \brief Cinquieme option
+			/// \brief Cinquieme option :
 			///
 			/// Ce cinquieme "case" lance la fonction modulo avec comme parametres les deux operateurs.
 			/// La variable de verification verifop est regle sur "vrai" pour sortir de la boucle de verification.
 		case 5: cout << "Le resultat est : " << modulo(opA, opB) << endl; verifop = true;
 			break;
-			/// \brief L'option par defaut
+			/// \brief L'option par defaut :
 			///
 			/// Cette option permet d'indiquer a l'utilisateur une erreur de saisie, car si les precedentes options ne sont pas lancees, forcement il y a une erreur de saisie lors du choix du type a utiliser.
 		default: cout << "\n\t ERREUR LORS DE LA SAISIE ! \n\n" << endl;
